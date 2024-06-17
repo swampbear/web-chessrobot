@@ -1,0 +1,16 @@
+:root{
+    --dark: #24227E;
+    --light: aliceblue;
+    --length: 800;
+}
+
+
+#chessboard {
+    display: grid;
+    grid-template-columns: repeat(8,1fr);
+    grid-template-rows: repeat(8,1fr);
+    width: 100%;
+    max-width:var(--length);
+    max-height: var(--length);
+}
+
