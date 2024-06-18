@@ -207,6 +207,7 @@ export default function Chessboard() {
 
             <button onClick={() => setUpPositionFromFEN('1r3r2/2qn2k1/p2p2pp/2pPp3/2P1P3/1P3NPP/1B1Q1PK1/3R1R2')}>Set up position</button>
             <button onClick={() => getFENFromPosition()}>Get FEN</button>
+            <button onClick={() => setUpPositionFromFEN('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR')}>Reset</button>
         </div>   
     )
 }
