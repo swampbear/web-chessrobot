@@ -1,5 +1,9 @@
+:root{
+  --dark: #24227E;
+  --light: aliceblue;
+  --length: 800;
+}
 #app {
   display: grid;
-  place-content: center;
   height: 100vh;
 }

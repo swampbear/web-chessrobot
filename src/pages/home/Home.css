@@ -1,0 +1,173 @@
+/* Import the Outfit font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap');
+
+:root {
+    --dark: #24227E;
+    --light: aliceblue;
+  }
+  /* For Webkit browsers (Chrome, Safari, etc.) */
+::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+    background: transparent;
+  }
+  
+  
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Outfit', sans-serif;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    background-color: var(--dark);
+}
+
+  
+  #home {
+    padding-left: 15%;
+    padding-right: 15%;
+    display: grid;
+    height: 100%;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+  }
+  
+  .gradientBackground {
+    background: linear-gradient(219deg, #131244 0%, #302DAA 100%);
+    height: 100%;
+  }
+  
+  #header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+  }
+  
+  #company {
+    font-size: 1.5em;
+  }
+  
+  #company .bold {
+    font-weight: bold;
+  }
+  
+  #about {
+    font-size: 1em;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+  
+  .hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    width: 100%;
+  }
+  
+  .hero-text {
+    flex: 1;
+    text-align: left;
+  }
+  
+  .hero-section h1 {
+    color: white;
+    font-size: 4em;
+    margin-bottom: 20px;
+  }
+  
+  .hero-section p {
+    color: white;
+    font-size: 1.8em;
+    margin-bottom: 40px;
+  }
+  
+  .buttons {
+    display: flex;
+    gap: 3em;
+    margin-bottom: 40px;
+    size: large;
+  }
+  
+  .connect-button, .github-button {
+    padding: 10px 20px;
+    font-size: 1.5em;
+    border: none;
+    cursor: pointer;
+    border-radius: 1.5em;
+  }
+  
+  .connect-button {
+    background-color: #F24E1E;
+    color: white;
+  }
+  .connect-button:hover {
+    background-color: #73321f;
+    color: white;
+  }
+  
+  .github-button {
+    background-color: #24227E;
+    outline: 5px solid #fff;
+    outline-width: 2px;
+    color: white;
+  }
+    .github-button:hover {
+        background-color: #1a185d;
+        color: white;
+    }
+  
+  .hero-image {
+    flex: 1;
+    text-align: right;
+  }
+  
+  .hero-image img {
+    width: 400px;
+    height: 400px;
+  }
+
+  hr.rounded{
+    border-top: 8px solid #fff;
+    border-radius: 10px;
+    width: 100%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    height: 10px;
+    background-color: #fff;
+  }
+
+  
+  .learn-more {
+    color: #fff;
+    padding: 40px;
+    width: 100%;
+    border-radius: 10px;
+    text-size-adjust: 100%;
+  }
+  
+  .learn-more h2 {
+    margin-bottom: 20px;
+    font-size: 2.5em;
+  }
+  
+  .learn-more p {
+    line-height: 1.6;
+    font-size: 1.5em;
+  }
+
+  #chessboard-container {
+    display: grid;
+    place-content: center;
+    height: 850px;
+
+  }
