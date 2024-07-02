@@ -1,38 +1,145 @@
 :root {
-    --dark: #24227E;
-    --light: aliceblue;
-  }
-  /* For Webkit browsers (Chrome, Safari, etc.) */
-::-webkit-scrollbar {
-    width: 0px;
-    height: 0px;
-    background: transparent;
-  }
-  
-  
-  html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    font-family: 'Outfit', sans-serif;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    background-color: var(--dark);
+  --dark: #24227E;
+  --light: aliceblue;
+  --button-bg: #4285F4;
+  --button-hover-bg: #c8bfbe;
+  --button-text: #ffffff;
+  --button-border: #ffffff;
+  --easy-bg: #28a745;
+  --medium-bg: #ffc107;
+  --hard-bg: #dc3545;
+  --white-bg: #ffffff;
+  --black-bg: #000000;
+  --white-text: #000000;
+  --border-radius: 20px;
 }
 
-  
-  #Selection {
+/* For Webkit browsers (Chrome, Safari, etc.) */
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+  background: transparent;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Outfit', sans-serif;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  background-color: var(--dark);
+}
+
+.gradientBackground {
+  background: linear-gradient(135deg, var(--dark), #4e54c8);
+  min-height: 100vh;
+  color: var(--light);
+}
+
+#selection {
     padding-left: 15%;
     padding-right: 15%;
     display: grid;
     height: 100%;
-  }
-  
-  .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    text-align: center;
-  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+#difficulty-container,
+#pieces-container {
+    width: 100%;
+}
+
+h2.title {
+  font-size: 2.5em;
+  margin-bottom: 0.1em;
+  color: var(--light);
+}
+
+.difficulty-button,
+.pieces-button {
+  background-color: transparent;
+  color: var(--light);
+  border: 2px solid var(--button-border);
+  padding: 0.75em 1.5em;
+  font-size: 1em;
+  font-weight: 700;
+  cursor: pointer;
+  margin: 0.5em;
+  border-radius: var(--border-radius);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.difficulty-button.easy.selected {
+  background-color: var(--easy-bg);
+  color: var(--white-text);
+  border: none;
+}
+
+.difficulty-button.medium.selected {
+  background-color: var(--medium-bg);
+  color: var(--white-text);
+  border: none;
+}
+
+.difficulty-button.hard.selected {
+  background-color: var(--hard-bg);
+  color: var(--white-text);
+  border: none;
+}
+
+.pieces-button.white.selected {
+  background-color: var(--white-bg);
+  color: var(--black-bg);
+  border: none;
+}
+
+.pieces-button.black.selected {
+  background-color: var(--black-bg);
+  color: var(--white-bg);
+  border: none;
+}
+
+.difficulty-button:hover,
+.pieces-button:hover {
+  background-color: var(--button-hover-bg);
+  color: var(--button-text);
+  transition: background-color 1s, color 0.3s;
+}
+
+.instructions-list {
+  list-style-type: disc;
+  text-align: left;
+  font-weight: 600;
+  font-size: 1.2em;
+}
+
+.instructions-list li {
+  margin-bottom: 0.5em;
+  padding: 0.5em;
+  border-radius: 5px;
+}
+
+.next-button {
+  background-color: transparent;
+  color: var(--light);
+  border: 2px solid var(--button-border);
+  padding: 0.75em 1.5em;
+  font-size: 1.2em;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 0.5em;
+  border-radius: var(--border-radius);
+}
+
+.next-button:hover{
+  background-color: #F24E1E;
+  transition: background-color 1.5s, color 0.3s;
+}
