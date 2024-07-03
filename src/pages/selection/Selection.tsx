@@ -3,6 +3,9 @@ import './Selection.css';
 import Header from '../../components/header/Header';
 import { Footer } from '../../components/footer/Footer';
 import { useSocket } from '../../socket/SocketContext';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 const Selection: React.FC = () => {
     const { socket } = useSocket();
@@ -11,7 +14,6 @@ const Selection: React.FC = () => {
 
     const handleDifficultySelect = (difficulty: string) => {
         setSelectedDifficulty(difficulty);
-        
     };
 
     const handlePieceSelect = (piece: string) => {
@@ -23,13 +25,14 @@ const Selection: React.FC = () => {
             socket.emit('message', selectedDifficulty)
             socket.emit('message', selectedPiece)
         } else {
-            console.log('Please select both color and difficulty')
+            toast.info("Pleade select both difficulty and color")
         }
     };
 
     return (
         <div id="selection" className="gradientBackground">
             <Header />
+            <ToastContainer/>
             <div className="container">
                 <section id="difficulty-container">
                     <h2 className="title">Choose Difficulty</h2>
