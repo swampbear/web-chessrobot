@@ -22,10 +22,9 @@ const Selection: React.FC = () => {
 
     const handleNextPage = () => {
         if (socket && selectedDifficulty && selectedPiece){
-            socket.emit('message', selectedDifficulty)
-            socket.emit('message', selectedPiece)
+            socket.emit('json', {difficulty: selectedDifficulty, color: selectedPiece})
         } else {
-            toast.info("Pleade select both difficulty and color")
+            toast.info("Please select both difficulty and pieces")
         }
     };
 

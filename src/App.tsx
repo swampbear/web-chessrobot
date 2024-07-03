@@ -17,7 +17,7 @@ function App() {
         console.log("Connected to flask-socket")
         socket.emit('message', { data: "I'm connected!" });
     });
-    socket.on('message', (msg) => {
+    socket.on('json', (msg) => {
         console.log('Message received from server:', msg);
     });
     return () => {
