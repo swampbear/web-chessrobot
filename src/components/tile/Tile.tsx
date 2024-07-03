@@ -5,9 +5,9 @@ interface Props {
     number: number;
 }
 export default function Tile({number, image}: Props) {
-    let isEven = number % 2 === 0;
+    let isOdd = number % 2 === 1;
     return (
-    <div className={`tile ${isEven ? 'white-tile' : 'black-tile'}`}>
+    <div className={`tile ${isOdd ? 'white-tile' : 'black-tile'}`}>
         {image && <div style={{backgroundImage: `url(${image})`}} className='chess-piece'> </div>}
     </div>)
 

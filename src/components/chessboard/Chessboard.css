@@ -9,7 +9,7 @@
     display: grid;
     grid-template-columns: repeat(8, 1fr);
     grid-template-rows: repeat(8, 1fr);
-    width: 100%;
+    width: 90%;
     max-width: 100%;
     aspect-ratio: 1;
   }
