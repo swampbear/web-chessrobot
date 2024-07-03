@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/home/Home';
 import { SocketProvider } from './socket/SocketContext';
 import Selection from './pages/selection/Selection';
+import BoardConfig from './pages/boardconfig/BoardConfig'
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
       <Routes>
           <Route index element={<Home/>}/>
           <Route path='/selection' Component={Selection}/>
+          <Route path='/boardconfig' Component={BoardConfig}/>
           </Routes>
       </SocketProvider>
     </BrowserRouter>

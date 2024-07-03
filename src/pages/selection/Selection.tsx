@@ -5,9 +5,11 @@ import { Footer } from '../../components/footer/Footer';
 import { useSocket } from '../../socket/SocketContext';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from 'react-router-dom';
 
 
 const Selection: React.FC = () => {
+    const navigate = useNavigate()
     const { socket } = useSocket();
     const [selectedDifficulty, setSelectedDifficulty] = useState<string | null>(null);
     const [selectedPiece, setSelectedPiece] = useState<string | null>(null);
@@ -20,11 +22,13 @@ const Selection: React.FC = () => {
         setSelectedPiece(piece);
     };
 
-    const handleNextPage = () => {
+    const handleNextPage = async () => {
         if (socket?.connected && selectedDifficulty && selectedPiece){
             socket.emit('json', {Conditions: {difficulty: selectedDifficulty, pieceColor: selectedPiece}})
+            await new Promise(r => setTimeout(r, 500));
+            navigate('/boardconfig');
         } else if(!socket?.connected){
-            toast.error('You have diconnected from the robot');
+            toast.error('You have diconnected from the robot, hae you tried turning it off and on again');
         } 
         else {
             toast.info("Please select both difficulty and pieces");
