@@ -18,7 +18,7 @@ function App() {
         socket.emit('message', { data: "I'm connected!" });
     });
     socket.on('json', (msg) => {
-        console.log('Message received from server:', msg);
+        console.log('JSON recieved:', msg);
     });
     return () => {
         socket.disconnect();  

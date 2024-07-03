@@ -21,10 +21,13 @@ const Selection: React.FC = () => {
     };
 
     const handleNextPage = () => {
-        if (socket && selectedDifficulty && selectedPiece){
-            socket.emit('json', {difficulty: selectedDifficulty, color: selectedPiece})
-        } else {
-            toast.info("Please select both difficulty and pieces")
+        if (socket?.connected && selectedDifficulty && selectedPiece){
+            socket.emit('json', {Conditions: {difficulty: selectedDifficulty, pieceColor: selectedPiece}})
+        } else if(!socket?.connected){
+            toast.error('You have diconnected from the robot');
+        } 
+        else {
+            toast.info("Please select both difficulty and pieces");
         }
     };
 
