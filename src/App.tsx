@@ -28,12 +28,12 @@ function App() {
   return (
     <BrowserRouter>
     <SocketProvider socket={socketInstance}>
-      <Routes>
-          <Route index element={<Home/>}/>
-          <Route path='/selection' Component={Selection}/>
-          <Route path='/boardconfig' Component={BoardConfig}/>
-          </Routes>
-      </SocketProvider>
+        <Routes>
+            <Route index element={<Home/>}/>
+            <Route path='/selection' Component={Selection}/>
+            <Route path='/boardconfig' Component={BoardConfig}/>
+        </Routes>
+    </SocketProvider>
     </BrowserRouter>
   );
 }

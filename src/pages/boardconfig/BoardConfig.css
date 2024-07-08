@@ -4,43 +4,79 @@
 :root {
     --dark: #24227E;
     --light: aliceblue;
-  }
-  /* For Webkit browsers (Chrome, Safari, etc.) */
+}
+
+/* For Webkit browsers (Chrome, Safari, etc.) */
 ::-webkit-scrollbar {
     width: 0px;
     height: 0px;
     background: transparent;
-  }
-  
-  
-  html, body {
+}
+
+html, body {
     height: 100%;
-    margin: 0;
-    padding: 0;
     font-family: 'Outfit', sans-serif;
     -ms-overflow-style: none;
     scrollbar-width: none;
     background-color: var(--dark);
+    color: aliceblue;
+}
+.header-container{
+  margin-left: 15%;
+  margin-right: 15%;
+  text-align: center;
+}
+#boardconfig {
+    padding-left: 15%;
+    padding-right: 10%;
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space between children */
+    align-items: center; /* Center items vertically */
+    height: 33vw;
 }
 
-  
-  #boardconfig {
-    padding-left: 15%;
-    padding-right: 15%;
-    display: grid;
-    height: 100%;
-  }
-  
-  .container {
+.space-between-players{
+  height: 50%;
+  width: 50%;
+}
+
+.player-container {
     display: flex;
     flex-direction: column;
+    justify-content: center; /* Center content vertically */
     align-items: center;
-    justify-content: center;
-    height: 100%;
+    height: 400px;
+    width: 45%; /* Set width to take half of the space */
     text-align: center;
-  }
+}
 
-  #chessboard-container{
-    width: 50%;
-    height: 100%;
-  }
+#chessboard-container {
+    width: 70%;
+    height: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#start-game-button {
+    background-color: transparent;
+    border-radius: 30px;
+    padding: 15px;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-width: 5px;
+    border-color: #fff;
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 1s ease;
+}
+
+#start-game-button:hover {
+    background-color: #F24E1E; /* Background color on hover */
+}
+
+.instruction-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: right;
+}
