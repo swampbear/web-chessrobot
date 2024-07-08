@@ -13,12 +13,18 @@ interface Piece {
     y: number;
 }
 
+type ChessboardProps = {
+    setIsValid: React.Dispatch<React.SetStateAction<boolean>>;
+    pieceColor: string;
+};
+
 const initialBoardState: Piece[] = [];
 
 
 for(let p = 0; p<2; p++){
     const type = p === 0 ? 'd' : 'l';
     const y = p === 0 ? 7 : 0;
+
     
     initialBoardState.push({image: `./assets/images/Chess_r${type}t60.png`, x: 0, y})
     initialBoardState.push({image: `./assets/images/Chess_n${type}t60.png`, x: 1, y})
@@ -35,11 +41,8 @@ for(let p = 0; p<2; p++){
     
 }
 
-
-
-
-export default function Chessboard() {
-    const[isPlayingWhite, setIsPlayingWhite] = useState(true)
+export default function Chessboard({ setIsValid, pieceColor }: ChessboardProps) {
+    const[isPlayingWhite, setIsPlayingWhite] = useState(pieceColor === 'white')
     const[correctBoardFEN, setCorrectBoardFen] = useState<string>('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR') //should be fed from chessapi through socket
     const[currentBoardFEN, setCurrentBoardFEN] = useState<string>('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR') //should be fed from the board irl through socket
     const chessBoardRef = useRef<HTMLDivElement>(null);
@@ -51,18 +54,13 @@ export default function Chessboard() {
     let frameVertical = null;
 
     useEffect (()=> {
-        async function fetchPieceColor() {
-            socket?.emit('isWhite');
-            socket?.on('isWhite', (isWhite) => {
-                setIsPlayingWhite(isWhite);
-                }) 
-        }
-        fetchPieceColor()
+        console.log(isPlayingWhite)
+        setIsValid(correctBoardFEN === currentBoardFEN)
         drawCoordinateAxis();
         drawPieces();
-        console.log('isPlayingWhite updated value:', isPlayingWhite);
+        console.log(`Piece color is: ${pieceColor}`);
 
-    },[isPlayingWhite]);
+    },[setIsPlayingWhite]);
     
 
 
@@ -137,20 +135,12 @@ export default function Chessboard() {
         frameHorizontal = [];
         frameVertical = [];
 
-        if(isPlayingWhite){
-            if(vertical[0]!== 8){
-                vertical.reverse();
-            }
-            if(horizontal[0]!== 'a'){
-                horizontal.reverse()
-            }
+        if(!isPlayingWhite){
+            vertical[0] !== 1 && vertical.reverse();
+            horizontal[0] !== 'h' && horizontal.reverse();
         } else {
-            if(vertical[0]!== 1){
-                vertical.reverse();
-            }
-            if(horizontal[0]!== 'h'){
-                horizontal.reverse()
-            }
+            vertical[0] !== 8 && vertical.reverse();
+            horizontal[0] !== 'a' && horizontal.reverse();
         }
 
         for(let i = 0; i < 8; i++){
@@ -211,12 +201,10 @@ export default function Chessboard() {
                     {frameHorizontal}
                 </section>
             </div>
-                {/* <button onClick={() => setUpPositionFromFEN('1r3r2/2qn2k1/p2p2pp/2pPp3/2P1P3/1P3NPP/1B1Q1PK1/3R1R2')}>Set up position</button>
+                 {/* <button onClick={() => setUpPositionFromFEN('1r3r2/2qn2k1/p2p2pp/2pPp3/2P1P3/1P3NPP/1B1Q1PK1/3R1R2')}>Set up position</button>
                 <button onClick={() => reverseFENString(currentBoardFEN)}>Reverse FEN</button>
                 <button onClick={() => setUpPositionFromFEN('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR')}>Reset</button>
                 <button onClick={() => getFENFromPosition()}>Get FEN</button> */}
-
-
          </div>
     )
 }
