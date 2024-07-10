@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Home.css';
 import Header from '../../components/header/Header';
-import Chessboard from '../../components/chessboard/Chessboard';
 import { Footer } from '../../components/footer/Footer';
 import { useNavigate } from 'react-router-dom';
 import { useSocket } from '../../socket/SocketContext';

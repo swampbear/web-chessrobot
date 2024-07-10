@@ -21,115 +21,109 @@ html, body {
     background-color: var(--dark);
     color: aliceblue;
 }
-#header-container{
-  padding-left: 15%;
-  padding-right: 15%;
-  text-align: center;
+
+p {
+  font-size: 1.5rem;
 }
-#boardconfig {
+
+#header-container {
     padding-left: 15%;
-    padding-right: 10%;
-    display: flex; /* Use flexbox for layout */
-    justify-content: space-between; /* Space between children */
-    align-items: center; /* Center items vertically */
-    height: 33vw;
-}
-
-.space-between-players{
-  height: 50%;
-  width: 50%;
-}
-
-.player-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Center content vertically */
-    align-items: center;
-    height: 400px;
-    width: 45%; /* Set width to take half of the space */
+    padding-right: 15%;
     text-align: center;
 }
 
+#boardconfig {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: auto;
+}
+
+#chessboard-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 #chessboard-container {
-  position: relative; /* Position relative to place labels correctly */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: auto;
-  height: auto;
-  font-size: 2rem;
-  font-weight: 700;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: auto;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+#robot-label {
+    margin-bottom: 10px;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+#you-label {
+    margin-top: 10px;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+#info-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 #start-game-button {
     background-color: transparent;
-    border-radius: 30px;
-    padding: 15px;
+    border-radius: 20px;
+    padding: 10px;
     color: #fff;
     font-size: 1.2rem;
     font-weight: 700;
     border-width: 5px;
     border-color: #fff;
-    cursor: pointer; /* Pointer cursor on hover */
+    cursor: pointer;
     transition: background-color 1s ease;
+    margin-top: 20px;
 }
-
-#robot-label {
-  position: absolute;
-  top: 30px; /* Adjust based on the position of the top piece */
-  left: 100%; /* Position it to the right of the chessboard */
-  margin-left: 10px; /* Add some space between the chessboard and the label */
-}
-
-#you-label {
-  position: absolute;
-  bottom: 55px; /* Adjust based on the position of the bottom piece */
-  left: 100%; /* Position it to the right of the chessboard */
-  margin-left: 10px; /* Add some space between the chessboard and the label */
-}
-
 
 #start-game-button:hover {
-    background-color: #F24E1E; /* Background color on hover */
-}
-
-.instruction-text {
-    font-size: 1.5rem;
-    font-weight: 700;
-    text-align: right;
+    background-color: #F24E1E;
 }
 
 .spinner {
-  margin: 50px auto;
-  width: 40px;
-  height: 40px;
-  position: relative;
-  text-align: center;
-  animation: rotate 2s infinite linear;
+    margin: 50px auto;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    text-align: center;
+    animation: rotate 2s infinite linear;
 }
 
 .spinner div {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: #333;
-  position: absolute;
-  top: 0;
-  left: 0;
-  animation: bounce 2s infinite ease-in-out;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #333;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: bounce 2s infinite ease-in-out;
 }
 
 .spinner div:nth-child(2) {
-  background: #999;
-  animation-delay: -1s;
+    background: #999;
+    animation-delay: -1s;
 }
 
 @keyframes rotate {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 @keyframes bounce {
-  0%, 100% { transform: scale(0); }
-  50% { transform: scale(1); }
+    0%, 100% { transform: scale(0); }
+    50% { transform: scale(1); }
 }

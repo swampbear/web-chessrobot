@@ -14,14 +14,6 @@ const Selection: React.FC = () => {
     const [selectedDifficulty, setSelectedDifficulty] = useState<string | null>(null);
     const [selectedPiece, setSelectedPiece] = useState<string | null>(null);
 
-    const handleDifficultySelect = (difficulty: string) => {
-        setSelectedDifficulty(difficulty);
-    };
-
-    const handlePieceSelect = (piece: string) => {
-        setSelectedPiece(piece);
-    };
-
     const handleNextPage = async () => {
         if (socket?.connected && selectedDifficulty && selectedPiece){
             socket.emit('json', {Conditions: {difficulty: selectedDifficulty, pieceColor: selectedPiece}})
@@ -44,19 +36,19 @@ const Selection: React.FC = () => {
                     <h2 className="title">Choose Difficulty</h2>
                     <button
                         className={`difficulty-button ${selectedDifficulty === 'easy' ? 'easy selected' : ''}`}
-                        onClick={() => handleDifficultySelect('easy')}
+                        onClick={() => setSelectedDifficulty('easy')}
                     >
                         EASY
                     </button>
                     <button
                         className={`difficulty-button ${selectedDifficulty === 'medium' ? 'medium selected' : ''}`}
-                        onClick={() => handleDifficultySelect('medium')}
+                        onClick={() => setSelectedDifficulty('medium')}
                     >
                         MEDIUM
                     </button>
                     <button
                         className={`difficulty-button ${selectedDifficulty === 'hard' ? 'hard selected' : ''}`}
-                        onClick={() => handleDifficultySelect('hard')}
+                        onClick={() => setSelectedDifficulty('hard')}
                     >
                         HARD
                     </button>
@@ -65,13 +57,13 @@ const Selection: React.FC = () => {
                     <h2 className="title">Choose Your Pieces</h2>
                     <button
                         className={`pieces-button ${selectedPiece === 'white' ? 'white selected' : ''}`}
-                        onClick={() => handlePieceSelect('white')}
+                        onClick={() => setSelectedPiece('white')}
                     >
                         WHITE
                     </button>
                     <button
                         className={`pieces-button ${selectedPiece === 'black' ? 'black selected' : ''}`}
-                        onClick={() => handlePieceSelect('black')}
+                        onClick={() => setSelectedPiece('black')}
                     >
                         BLACK
                     </button>

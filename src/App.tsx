@@ -5,12 +5,15 @@ import Home from './pages/home/Home';
 import { SocketProvider } from './socket/SocketContext';
 import Selection from './pages/selection/Selection';
 import BoardConfig from './pages/boardconfig/BoardConfig'
+import Game from './pages/game/Game'
+
 
 
 function App() {
   const[socketInstance, setSocketInstance] = useState<Socket | null>(null);
   useEffect(() => {
-    const socket = io('http://127.0.0.1:8080')
+    try {
+      const socket = io('http://127.0.0.1:8080')
 
     setSocketInstance(socket);
 
@@ -24,7 +27,12 @@ function App() {
     return () => {
         socket.disconnect();  
     };
+    } catch (error) {
+      console.error(error)
+    }
 }, []);
+
+
   return (
     <BrowserRouter>
     <SocketProvider socket={socketInstance}>
@@ -32,6 +40,7 @@ function App() {
             <Route index element={<Home/>}/>
             <Route path='/selection' Component={Selection}/>
             <Route path='/boardconfig' Component={BoardConfig}/>
+            <Route path='/game' Component={Game}/>
         </Routes>
     </SocketProvider>
     </BrowserRouter>
