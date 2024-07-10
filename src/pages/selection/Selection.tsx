@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Selection.css';
 import Header from '../../components/header/Header';
 import { Footer } from '../../components/footer/Footer';
-import { useSocket } from '../../socket/SocketContext';
+import { useSocket } from '../../contextproviders/socket/SocketContext';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from 'react-router-dom';

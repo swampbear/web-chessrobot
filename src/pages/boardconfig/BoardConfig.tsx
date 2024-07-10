@@ -3,15 +3,16 @@ import Header from '../../components/header/Header';
 import { Footer } from '../../components/footer/Footer';
 import Chessboard from '../../components/chessboard/Chessboard';
 import './BoardConfig.css';
-import { useSocket } from '../../socket/SocketContext';
+import { useSocket } from '../../contextproviders/socket/SocketContext';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from 'react-router-dom';
+import { usePieceColor } from '../../contextproviders/pieceColor/PieceColorContext';
 
 const BoardConfig = () => {
     const { socket } = useSocket();
     const [isValid, setIsValid] = useState<boolean>(false);
-    const [pieceColor, setPieceColor] = useState<string>("");
+    const { pieceColor, setPieceColor } = usePieceColor();
     const [loading, setLoading] = useState<boolean>(true);
     const navigate = useNavigate();
     
@@ -20,13 +21,13 @@ const BoardConfig = () => {
         function fetchPieceColor() {
             try {
                 socket?.emit('getColor');
-            socket?.on('getColor', (color: string) => {
-                if(color === ''){
-                    throw new Error('Color cannot be empty')
-                }
-                setPieceColor(color);
-                setLoading(false);
-            });
+                socket?.on('getColor', (color: string) => {
+                    if(color === ''){
+                        throw new Error('Color cannot be empty')
+                    }
+                    setPieceColor(color);
+                    setLoading(false);
+                });
             } catch (error) {
                 console.error(error);
                 alert("There has been an error fetching pieceColor from python socket")
@@ -83,7 +84,7 @@ const BoardConfig = () => {
                 </div>
                 <div id="info-container">
                     <h2>Validate board</h2>
-                    <p>Make sure the numbers and letters are in the same orienation as on the illustration. Then place the pieces in their correct postition. Good luck, you are probably going to lose</p>
+                    <p>Youa have choosen the {pieceColor} pieces. Make sure the numbers and letters are in the same orienation as on the illustration. Then place the pieces in their correct postition. Good luck, you are probably going to lose</p>
                     <button id="start-game-button" onClick={handleStartGameClick}>START GAME</button>
                 </div>
             </div>

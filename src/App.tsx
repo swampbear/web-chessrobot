@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react';import './App.css';
 import io, { Socket } from 'socket.io-client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/home/Home';
-import { SocketProvider } from './socket/SocketContext';
+import { SocketProvider } from './contextproviders/socket/SocketContext';
+import { PieceColorProvider } from './contextproviders/pieceColor/PieceColorContext';
+
 import Selection from './pages/selection/Selection';
 import BoardConfig from './pages/boardconfig/BoardConfig'
 import Game from './pages/game/Game'
@@ -36,12 +38,14 @@ function App() {
   return (
     <BrowserRouter>
     <SocketProvider socket={socketInstance}>
-        <Routes>
-            <Route index element={<Home/>}/>
-            <Route path='/selection' Component={Selection}/>
-            <Route path='/boardconfig' Component={BoardConfig}/>
-            <Route path='/game' Component={Game}/>
-        </Routes>
+      <PieceColorProvider>
+          <Routes>
+              <Route index element={<Home/>}/>
+              <Route path='/selection' Component={Selection}/>
+              <Route path='/boardconfig' Component={BoardConfig}/>
+              <Route path='/game' Component={Game}/>
+          </Routes>
+        </PieceColorProvider>
     </SocketProvider>
     </BrowserRouter>
   );
