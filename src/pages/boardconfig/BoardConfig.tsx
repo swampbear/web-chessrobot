@@ -8,6 +8,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from 'react-router-dom';
 import { usePieceColor } from '../../contextproviders/pieceColor/PieceColorContext';
+import ErrorBoundary from '../../ErrorBoundary';
 
 const BoardConfig = () => {
     const { socket } = useSocket();
@@ -77,7 +78,7 @@ const BoardConfig = () => {
                                 <div></div>
                             </div>
                         ) : (
-                            <Chessboard setIsValid={setIsValid} pieceColor={pieceColor} />
+                            <Chessboard setIsValid={setIsValid}/>
                         )}
                     </div>
                     <div id="you-label">(YOU)</div>

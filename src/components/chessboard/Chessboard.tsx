@@ -3,6 +3,7 @@ import './Chessboard.css';
 import { useSocket } from '../../contextproviders/socket/SocketContext';
 import { drawPieces, drawCoordinateAxis, getFENFromPosition, createBoard} from './utils';
 import { Piece } from './Piece'
+import { usePieceColor } from '../../contextproviders/pieceColor/PieceColorContext';
 
 let horizontal = ['h', 'g', 'f', 'e', 'd', 'c', 'b', 'a'];
 let vertical = [8,7,6,5,4,3,2,1];
@@ -11,7 +12,6 @@ let vertical = [8,7,6,5,4,3,2,1];
 
 type ChessboardProps = {
     setIsValid: React.Dispatch<React.SetStateAction<boolean>>;
-    pieceColor: string;
 };
 
 const initialBoardState: Piece[] = [];
@@ -36,7 +36,8 @@ for(let p = 0; p<2; p++){
     }
 } 
 
-const Chessboard = ({ setIsValid, pieceColor }: ChessboardProps) => {
+const Chessboard = ({ setIsValid }: ChessboardProps) => {
+    const { pieceColor, setPieceColor} = usePieceColor()
     const[isPlayingWhite, setIsPlayingWhite] = useState(pieceColor === 'white')
     const[correctBoardFEN, setCorrectBoardFen] = useState<string>('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR') //should be fed from chessapi through socket
     const[currentBoardFEN, setCurrentBoardFEN] = useState<string>('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR') //should be fed from the board irl through socket
@@ -58,8 +59,8 @@ const Chessboard = ({ setIsValid, pieceColor }: ChessboardProps) => {
 
     useEffect (()=> {
         setIsValid(correctBoardFEN === currentBoardFEN);
-    },[])
-
+    },[]);
+    
 
     // Render the board
     return (

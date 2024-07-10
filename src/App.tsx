@@ -34,7 +34,6 @@ function App() {
     }
 }, []);
 
-
   return (
     <BrowserRouter>
     <SocketProvider socket={socketInstance}>
