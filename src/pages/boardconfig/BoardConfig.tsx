@@ -66,8 +66,6 @@ const BoardConfig = () => {
     return (
         <div id="header-container" className="gradientBackground">
             <Header />
-            <h2>Your board should look like this:</h2>
-            <br />
             <div id="boardconfig">
                 <div id="chessboard-area">
                     <div id="robot-label">(ROBOT)</div>
@@ -78,21 +76,27 @@ const BoardConfig = () => {
                                 <div></div>
                             </div>
                         ) : (
-                            <Chessboard setIsValid={setIsValid}/>
+                            <ErrorBoundary fallback={<h2>Error loading board...</h2>}>
+                                <Chessboard setIsValid={setIsValid} />
+                            </ErrorBoundary>
                         )}
                     </div>
                     <div id="you-label">(YOU)</div>
                 </div>
                 <div id="info-container">
                     <h2>Validate board</h2>
-                    <p>Youa have choosen the {pieceColor} pieces. Make sure the numbers and letters are in the same orienation as on the illustration. Then place the pieces in their correct postition. Good luck, you are probably going to lose</p>
+                    <p>
+                        You have chosen the {pieceColor} pieces. Make sure the numbers and letters are in the same orientation as on the illustration. Then place the pieces in their correct position. 
+                        <br /> <br />
+                        Good luck, you are probably going to LOSE.
+                    </p>
                     <button id="start-game-button" onClick={handleStartGameClick}>START GAME</button>
                 </div>
             </div>
             <ToastContainer />
-            <Footer />
         </div>
     );
-}
+};
+
 
 export default BoardConfig;

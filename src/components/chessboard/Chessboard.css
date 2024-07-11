@@ -15,21 +15,16 @@
     display: grid;
     grid-template-columns: repeat(8, 1fr);
     grid-template-rows: repeat(8, 1fr);
-    width: 20rem;
     aspect-ratio: 1;
   }
 
   #frame {
-    
-    width: 28rem;
-    height: 24rem;
     display: grid;
     grid-template-areas:
         "vertical-numbers chessboard"
         "empty horizontal-letters";
     grid-template-columns: auto 1fr;
     grid-template-rows: 1fr auto;
-    padding: 4%;
 }
 
 #vertical-numbers {
@@ -38,9 +33,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  height: 360px; /* Make it stretch to the full height */
+  height: 100%; /* Make it stretch to the full height */
   margin-right: 20px; /* Adjust spacing if necessary */
-  font-size: large;
+  font-size: larger;
 }
 
 #vertical-numbers span {
@@ -53,8 +48,8 @@
   display: flex;
   justify-content: space-between; /* Space between each letter */
   align-items: center; /* Center items vertically */
-  width: 360px; /* Set a fixed width for the container */
-  font-size: large;
+  width: 100%; /* Set a fixed width for the container */
+  font-size: larger;
 }
 
 #horizontal-letters span {

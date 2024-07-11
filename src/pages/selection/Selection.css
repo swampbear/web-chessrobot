@@ -11,7 +11,7 @@
   --white-bg: #ffffff;
   --black-bg: #000000;
   --white-text: #000000;
-  --border-radius: 20px;
+  --border-radius: 100px;
 }
 
 /* For Webkit browsers (Chrome, Safari, etc.) */
@@ -21,45 +21,35 @@
   background: transparent;
 }
 
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  font-family: 'Outfit', sans-serif;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-  background-color: var(--dark);
-}
-
-.gradientBackground {
-  background: linear-gradient(135deg, var(--dark), #4e54c8);
-  min-height: 100vh;
-  color: var(--light);
-}
-
 #selection {
-    padding-left: 15%;
-    padding-right: 15%;
-    display: grid;
-    height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
 }
 
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  height: 88.9vh;
   width: 100%;
+  max-width: 1200px;
+  background-color: transparent;
 }
 
 #difficulty-container,
-#pieces-container {
-    width: 100%;
+#pieces-container,
+#beforegame-container {
+  width: 100%;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 h2.title {
-  font-size: 2.5em;
-  margin-bottom: 0.1em;
+  font-size: 2em;
+  margin-bottom: 0.5em;
   color: var(--light);
 }
 
@@ -67,13 +57,14 @@ h2.title {
 .pieces-button {
   background-color: transparent;
   color: var(--light);
-  border: 2px solid var(--button-border);
+  border: 4px solid var(--button-border);
   padding: 0.75em 1.5em;
   font-size: 1em;
-  font-weight: 700;
+  font-weight: 600;
   cursor: pointer;
-  margin: 0.5em;
-  border-radius: var(--border-radius);
+  margin-right: 0.5em;
+  margin-left: 0.5em;
+  border-radius: 100px;
   transition: background-color 0.3s, color 0.3s;
 }
 
@@ -119,10 +110,10 @@ h2.title {
   text-align: left;
   font-weight: 600;
   font-size: 1.2em;
+  padding: 0 20px;
 }
 
 .instructions-list li {
-  margin-bottom: 0.5em;
   padding: 0.5em;
   border-radius: 5px;
 }
@@ -130,8 +121,8 @@ h2.title {
 .next-button {
   background-color: transparent;
   color: var(--light);
-  border: 2px solid var(--button-border);
-  padding: 0.75em 1.5em;
+  border: 5px solid var(--button-border);
+  padding: 0.5em 1.5em;
   font-size: 1.2em;
   font-weight: 600;
   cursor: pointer;
@@ -139,7 +130,60 @@ h2.title {
   border-radius: var(--border-radius);
 }
 
-.next-button:hover{
+.next-button:hover {
   background-color: #F24E1E;
   transition: background-color 1.5s, color 0.3s;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #difficulty-container,
+  #pieces-container,
+  #beforegame-container {
+    width: 80%;
+    margin-bottom: 10px;
+  }
+
+  h2.title {
+    font-size: 2.5em;
+  }
+
+  .difficulty-button,
+  .pieces-button,
+  .next-button {
+    padding: 1em 2em;
+    font-size: 1.2em;
+  }
+
+  .instructions-list {
+    font-size: 1.5em;
+  }
+}
+
+@media (min-width: 1024px) {
+  #difficulty-container,
+  #pieces-container,
+  #beforegame-container {
+    width: 70%;
+  }
+
+  h2.title {
+    font-size: 2.5em;
+  }
+
+  .difficulty-button,
+  .pieces-button,
+  .next-button {
+    padding: 1.25em 2.5em;
+    font-size: 1.5em;
+  }
+
+  .instructions-list {
+    font-size: 1.8em;
+  }
 }

@@ -1,10 +1,6 @@
-/* Import the Outfit font from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap');
 
-:root {
-    --dark: #24227E;
-    --light: aliceblue;
-}
+
 
 /* For Webkit browsers (Chrome, Safari, etc.) */
 ::-webkit-scrollbar {
@@ -13,36 +9,29 @@
     background: transparent;
 }
 
-html, body {
-    height: 100%;
-    font-family: 'Outfit', sans-serif;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    background-color: var(--dark);
-    color: aliceblue;
-}
-
 p {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 #header-container {
-    padding-left: 15%;
-    padding-right: 15%;
+    padding: 0 5%;
     text-align: center;
 }
 
 #boardconfig {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    height: auto;
+    width: 100%;
+    height: 83vh;
 }
 
 #chessboard-area {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 2em;
+    width: 50%;
 }
 
 #chessboard-container {
@@ -50,21 +39,15 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: auto;
-    height: auto;
+    width: 100%;
+    aspect-ratio: 1 / 1;
     font-size: 2rem;
     font-weight: 700;
 }
 
-#robot-label {
-    margin-bottom: 10px;
-    font-size: 2rem;
-    font-weight: 700;
-}
-
+#robot-label,
 #you-label {
-    margin-top: 10px;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 700;
 }
 
@@ -73,19 +56,30 @@ p {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#info-container h2 {
+    margin-bottom: 0.5em;
+    font-size: 3em;
+}
+
+#info-container p {
+    margin-bottom: 1em;
+    font-size: 2.3em;
 }
 
 #start-game-button {
     background-color: transparent;
-    border-radius: 20px;
-    padding: 10px;
+    border-radius: 50px;
+    padding: 10px 20px;
     color: #fff;
-    font-size: 1.2rem;
+    font-size: 2.5rem;
     font-weight: 700;
-    border-width: 5px;
-    border-color: #fff;
+    border: 4px solid #fff;
     cursor: pointer;
-    transition: background-color 1s ease;
+    transition: background-color 0.3s ease;
     margin-top: 20px;
 }
 
@@ -94,11 +88,9 @@ p {
 }
 
 .spinner {
-    margin: 50px auto;
     width: 40px;
     height: 40px;
     position: relative;
-    text-align: center;
     animation: rotate 2s infinite linear;
 }
 
@@ -126,4 +118,43 @@ p {
 @keyframes bounce {
     0%, 100% { transform: scale(0); }
     50% { transform: scale(1); }
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    #boardconfig {
+        flex-direction: row;
+        padding: 2em;
+    }
+
+    #chessboard-area {
+        margin-bottom: 0;
+    }
+
+    #info-container {
+        width: 50%;
+    }
+
+    p {
+        font-size: 1.25rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    #header-container {
+        padding: 0 10%;
+    }
+
+    #info-container {
+        width: 50%;
+    }
+
+    p {
+        font-size: 1.5rem;
+    }
+
+    #robot-label,
+    #you-label {
+        font-size: 2rem;
+    }
 }

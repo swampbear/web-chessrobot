@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
 import './Selection.css';
+import React, { useState } from 'react';
 import Header from '../../components/header/Header';
 import { Footer } from '../../components/footer/Footer';
 import { useSocket } from '../../contextproviders/socket/SocketContext';
@@ -28,9 +28,10 @@ const Selection: React.FC = () => {
     };
 
     return (
-        <div id="selection" className="gradientBackground">
+        <div id="header-container" className="gradientBackground">
             <Header />
-            <ToastContainer/>
+        <div id="selection" className="gradientBackground">
+            <ToastContainer />
             <div className="container">
                 <section id="difficulty-container">
                     <h2 className="title">Choose Difficulty</h2>
@@ -75,12 +76,11 @@ const Selection: React.FC = () => {
                         <li>You will be able to see if it is your turn or the robot's turn on the screen</li>
                         <li>Be aware when it is the robot's turn to move, it is quite strong</li>
                     </ul>
+                    <button className="next-button" onClick={handleNextPage}>NEXT</button>
                 </section>
-                <button className="next-button" onClick={handleNextPage}>NEXT</button>
             </div>
-            <Footer />
+        </div>
         </div>
     );
-}
-
+};
 export default Selection;
