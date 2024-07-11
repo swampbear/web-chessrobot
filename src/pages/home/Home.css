@@ -66,13 +66,13 @@
   
   .hero-section h1 {
     color: white;
-    font-size: 4em;
+    font-size: 5.5em;
     margin-bottom: 20px;
   }
   
   .hero-section p {
     color: white;
-    font-size: 1.8em;
+    font-size: 2.8em;
     margin-bottom: 40px;
   }
   
@@ -85,8 +85,7 @@
   
   .connect-button, .github-button {
     padding: 20px 20px;
-    font-size: 1.5em;
-    font-weight: 800;
+    font-size: 2.5em;
     border: none;
     cursor: pointer;
     border-radius: 1.5em;
@@ -143,12 +142,12 @@
   
   .learn-more h2 {
     margin-bottom: 20px;
-    font-size: 2.5em;
+    font-size: 3.5em;
   }
   
   .learn-more p {
     line-height: 1.6;
-    font-size: 1.5em;
+    font-size: 2.5em;
   }
 
   #chessboard-container {
