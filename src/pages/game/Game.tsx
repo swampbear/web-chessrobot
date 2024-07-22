@@ -7,6 +7,7 @@ import './Game.css';
 import { useSocket } from "../../contextproviders/socket/SocketContext";
 import ErrorBoundary from "../../ErrorBoundary";
 import { ToastContainer } from "react-toastify";
+import {motion} from "framer-motion"
 
 const Game = () => {
     const { pieceColor, setPieceColor } = usePieceColor();
@@ -79,7 +80,11 @@ const Game = () => {
     }
 
     return (
-        <div id="header-container" className="gradientBackground">
+        <motion.div id="header-container" className="gradientBackground"
+        initial={{opacity: 0}}
+       animate={{opacity: 1}}
+       exit={{opacity: 0}}
+        >
             <Header />
             <div id="content-container">
                 <div id="left-panel">
@@ -89,7 +94,7 @@ const Game = () => {
                         </div>
                         <div className="opponent-details">
                             <h2>CHESS ROBOT</h2>
-                            <p>{difficulty} difficulty</p>
+                            <p style={{ fontSize: '1rem' }}>{difficulty} difficulty</p>
                         </div>
                     </div>
                     <div id="chessboard-container">
@@ -129,7 +134,7 @@ const Game = () => {
                 </div>
             </div>
             <ToastContainer />
-        </div>
+        </motion.div>
     );
     function capitalizeFirstLetter(str: string): string {
         if (str.length === 0) return str;

@@ -9,6 +9,8 @@ import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from 'react-router-dom';
 import { usePieceColor } from '../../contextproviders/pieceColor/PieceColorContext';
 import ErrorBoundary from '../../ErrorBoundary';
+import { motion } from "framer-motion"
+
 
 const BoardConfig = () => {
     const { socket } = useSocket();
@@ -64,7 +66,11 @@ const BoardConfig = () => {
     }
 
     return (
-        <div id="header-container" className="gradientBackground">
+        <motion.div id="header-container" className="gradientBackground"
+        initial={{opacity: 0}}
+       animate={{opacity: 1}}
+       exit={{opacity: 0}}
+        >
             <Header />
             <div id="boardconfig">
                 <div id="chessboard-area">
@@ -94,7 +100,7 @@ const BoardConfig = () => {
                 </div>
             </div>
             <ToastContainer />
-        </div>
+        </motion.div>
     );
 };
 

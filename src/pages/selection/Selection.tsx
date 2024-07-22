@@ -6,9 +6,11 @@ import { useSocket } from '../../contextproviders/socket/SocketContext';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from 'react-router-dom';
+import { motion } from "framer-motion"
 
 
-const Selection: React.FC = () => {
+
+const Selection = () => {
     const navigate = useNavigate()
     const { socket } = useSocket();
     const [selectedDifficulty, setSelectedDifficulty] = useState<string | null>(null);
@@ -28,10 +30,13 @@ const Selection: React.FC = () => {
     };
 
     return (
-        <div id="header-container" className="gradientBackground">
+        <motion.div id="header-container" className="gradientBackground"
+        initial={{opacity: 0}}
+       animate={{opacity: 1}}
+       exit={{opacity: 0}}
+        >
             <Header />
         <div id="selection" className="gradientBackground">
-            <ToastContainer />
             <div className="container">
                 <section id="difficulty-container">
                     <h2 className="title">Choose Difficulty</h2>
@@ -71,16 +76,18 @@ const Selection: React.FC = () => {
                 </section>
                 <section id="beforegame-container">
                     <h2 className="title">Before Starting The Game</h2>
-                    <ul className="instructions-list">
+                    {/* <ul className="instructions-list">
                         <li>Make sure all the pieces are in their correct position</li>
                         <li>You will be able to see if it is your turn or the robot's turn on the screen</li>
                         <li>Be aware when it is the robot's turn to move, it is quite strong</li>
-                    </ul>
+                    </ul> */}
                     <button className="next-button" onClick={handleNextPage}>NEXT</button>
                 </section>
             </div>
         </div>
-        </div>
+        <ToastContainer />
+
+        </motion.div>
     );
 };
 export default Selection;

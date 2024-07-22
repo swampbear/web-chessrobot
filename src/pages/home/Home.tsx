@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSocket } from '../../contextproviders/socket/SocketContext';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { motion } from "framer-motion"
 
 export default function Home() {
     const {socket} = useSocket()
@@ -20,7 +21,11 @@ export default function Home() {
     }};
 
     return (
-       <div id="home" className='gradientBackground'>
+       <motion.div id="home" className='gradientBackground'
+       initial={{opacity: 0}}
+       animate={{opacity: 1}}
+       exit={{opacity: 0}}
+       >
             <Header/>
             <ToastContainer/>
             <div id="home-container">
@@ -53,7 +58,7 @@ export default function Home() {
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                 </div>
             </div>
-        </div>
+        </motion.div>
       
 
     );

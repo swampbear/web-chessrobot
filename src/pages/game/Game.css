@@ -45,7 +45,7 @@ html, body {
 #left-panel,
 #right-panel {
     width: 100%;
-    height: 83vh;
+    height: 75.5dvh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -59,8 +59,8 @@ html, body {
 }
 
 .avatar {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     background-color: #fff;
     margin-right: 15px;
@@ -76,18 +76,21 @@ html, body {
 .opponent-details, 
 .player-details {
     text-align: left;
+    font-size: .8rem;
 }
 
 .opponent-details h2,
 .player-details h2 {
     margin-bottom: 0;
     padding: 0;
+    font-size: 1.2em;
 }
 
 .opponent-details p,
 .player-details p {
     margin-top: 0; /* Remove the top margin */
     padding: 0; /* Remove any default padding */
+    font-size: 1rem;
 }
 
 #chessboard-container {
@@ -95,6 +98,7 @@ html, body {
     justify-content: center;
     align-items: center;
     width: 100%;
+    height: 100%;
     aspect-ratio: 1 / 1;
 }
 
@@ -188,7 +192,7 @@ html, body {
     }
 
     #moves-played {
-        font-size: 2rem;
+        font-size: 1.2rem;
     }
 
     .resign-button, 

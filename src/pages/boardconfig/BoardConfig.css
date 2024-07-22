@@ -23,7 +23,7 @@ p {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    height: 83vh;
+    height: 75dvh;
 }
 
 #chessboard-area {
@@ -39,6 +39,7 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 50%;
     width: 100%;
     aspect-ratio: 1 / 1;
     font-size: 2rem;
@@ -72,7 +73,7 @@ p {
 
 #start-game-button {
     background-color: transparent;
-    border-radius: 50px;
+    border-radius: 30px;
     padding: 10px 20px;
     color: #fff;
     font-size: 2.5rem;

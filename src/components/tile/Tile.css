@@ -1,33 +1,4 @@
-.tile{
-    width: 60px;
-    height: 60px;
-    display: grid;
-    place-content: center;
-}
 
-.black-tile {
-    background-color: var(--dark);
-}
-
-.white-tile{
-    background-color: var(--light);
-}
-
-.tile .chess-piece:hover{
-    cursor: grab;
-}
-
-.tile .chess-piece:active{
-    cursor: grabbing;
-}
-
-.tile .chess-piece{
-    width: 60px;
-    height: 60px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-}
 
 :root {
     --dark: #24227E;
@@ -58,8 +29,8 @@
     cursor: grabbing;
 }
 .tile .chess-piece{
-    width: 2.5em;
-    height: 2.5em;
+    width: 2.8em;
+    height: 2.8rem;
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -80,6 +51,11 @@
 
 @media (min-width: 1024px) {
     :root {
-        --tile-size: 80px; /* Max tile size for large screens */
+        --tile-size: 70px; /* Max tile size for large screens */
+    }
+
+    .tile .chess-piece{
+        width: 4.5em;
+        height: 4.5rem;
     }
 }
